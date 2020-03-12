@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+Route::get('/get', 'HomeController@chat')->name('chat');
+Route::post('/post', 'HomeController@postMessage')->name('chat_post');
