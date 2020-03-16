@@ -21,8 +21,6 @@ class HomeController extends Controller
      */
     public function postMessage(Request $request)
     {
-        file_put_contents(base_path() . '/storage/logs/newlog.log', print_r($request->all(), true), FILE_APPEND);
-
         if ($request->filled('sendbox')) {
             (new Message(['text' => $request->sendbox]))->save();
             return response('ok', 200);
